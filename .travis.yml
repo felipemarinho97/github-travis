@@ -6,6 +6,11 @@ cache:
   - node_modules
 script:
   - ./build.sh
+after_success:
+  - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
+  - git add build
+  - git commit -m ${MESSAGE}
+  - git push "https://${TRAVIS_SECURE_TOKEN_NAME}@${GH_REPO}" master > /dev/null 2>&1
 deploy:
   provider: pages
   skip_cleanup: true
