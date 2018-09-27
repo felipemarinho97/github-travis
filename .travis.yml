@@ -10,10 +10,10 @@ after_success:
   - git config --global user.email "travis@travis-ci.org"
   - git config --global user.name "Travis CI"
   - git checkout -b master
-  - git add .
+  - git add build
   - git commit --message "Travis build: $TRAVIS_BUILD_NUMBER" -m "[skip ci]"
   - git remote add origin-build https://${GH_TOKEN}@github.com/felipemarinho97/github-travis.git > /dev/null 2>&1
-  - git push --quiet --set-upstream origin-pages master
+  - git push --quiet --set-upstream origin-build master
 deploy:
   provider: pages
   skip_cleanup: true
