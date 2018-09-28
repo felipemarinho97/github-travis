@@ -1,5 +1,6 @@
 {
   "name": "github-travis",
+  "homepage": "https://felipemarinho97.github.io/github-travis",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
