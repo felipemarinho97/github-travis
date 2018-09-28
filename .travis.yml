@@ -1,3 +1,6 @@
+branches:
+  only:
+  - dev
 language: node_js
 node_js:
   - "stable"
@@ -11,7 +14,7 @@ after_success:
   - git config --global user.name "Travis CI"
   - git checkout -b master
   - git add build
-  - git commit --message "Travis build: $TRAVIS_BUILD_NUMBER" -m "[skip ci]"
+  - git commit --message "[skip ci]"
   - git remote add origin-build https://${GH_TOKEN}@github.com/felipemarinho97/github-travis.git > /dev/null 2>&1
   - git push --quiet --set-upstream origin-build master
 deploy:
@@ -21,4 +24,4 @@ deploy:
   github_token: $github_token
   keep-history: true
   on:
-    branch: master
+    branch: dev
